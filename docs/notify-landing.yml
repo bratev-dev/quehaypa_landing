@@ -1,0 +1,26 @@
+# Copiar este archivo en el repo de la app: bratev-dev/quehaypa_frontend/.github/workflows/notify-landing.yml
+#
+# Avisa a la landing cada vez que se publica un release, para que actualice el botón,
+# la versión y el tamaño del APK.
+#
+# Requisito: el secret LANDING_DISPATCH_TOKEN en quehaypa_frontend (ver README de la landing).
+#
+# Importante: si el release lo crea otra GitHub Action usando el GITHUB_TOKEN por defecto,
+# GitHub NO dispara este workflow (los eventos creados con GITHUB_TOKEN no inician otros
+# workflows). En ese caso, en vez de este archivo agrega al final de ese workflow el paso
+# «Avisar a la landing» de abajo.
+
+name: Avisar a la landing
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Avisar a la landing
+        env:
+          GH_TOKEN: ${{ secrets.LANDING_DISPATCH_TOKEN }}
+        run: gh api repos/bratev-dev/quehaypa_landing/dispatches -f event_type=apk-released

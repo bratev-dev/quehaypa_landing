@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Qué hay pa'?</title>
+<meta name="theme-color" content="#FCD413">
+<meta name="robots" content="index, follow">
+<script>
+(function () {
+  var m, l;
+  try { m = localStorage.getItem('qhp-mode'); l = localStorage.getItem('qhp-lang'); } catch (e) {}
+  if (m !== 'light' && m !== 'dark') m = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  if (l !== 'es' && l !== 'en') l = /^es\b/i.test(navigator.language || 'es') ? 'es' : 'en';
+  document.documentElement.setAttribute('data-mode', m);
+  document.documentElement.setAttribute('lang', l);
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+{{CSS}}
+</head>
+<body class="legal-page" data-title-key="{{TITLE_KEY}}">
+<a class="skip" href="#contenido" data-i18n="skip">Saltar al contenido</a>
+
+<header class="nav is-scrolled" id="nav" data-solid>
+  <div class="nav__bar">
+    <a class="nav__logo" href="index.html" data-i18n-attr="aria-label:homeLink">
+      <img class="on-light" src="{{IMG:assets/logo/logo-negro.png}}" alt="" width="117" height="40">
+      <img class="on-dark" src="{{IMG:assets/logo/logo-amarillo.png}}" alt="" width="117" height="40">
+    </a>
+    <div class="nav__links">
+      {{NAV_CONTROLS}}
+    </div>
+  </div>
+</header>
+
+<main id="contenido" class="legal">
+  <a class="legal__back" href="index.html">{{IC_BACK}}<span data-i18n="backHome">Volver al inicio</span></a>
+  <article lang="es">
+{{LEGAL_ES}}
+  </article>
+  <article lang="en">
+{{LEGAL_EN}}
+  </article>
+</main>
+
+<footer class="footer">
+  <div class="footer__in">
+    <span>© 2026 Alta Kurtosis Software Solutions</span>
+    <nav data-i18n-attr="aria-label:footerLabel">
+      <a href="index.html" data-i18n="backHome">Volver al inicio</a>
+      <a href="privacidad.html" data-i18n="privacy">Política de privacidad</a>
+      <a href="terminos.html" data-i18n="terms">Términos</a>
+      <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>
+    </nav>
+  </div>
+</footer>
+
+<script>window.QHP = {{CFG}};</script>
+{{I18N}}
+{{CONTROLS}}
+</body>
+</html>

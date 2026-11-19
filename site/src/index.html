@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Qué hay pa'? · Descarga la app</title>
+<meta name="description" content="Encuentra eventos, lugares y planes cerca de ti, guárdalos y recibe recordatorios. Descarga la app para Android.">
+<meta name="theme-color" content="#FCD413">
+<script>
+(function () {
+  var m, l;
+  try { m = localStorage.getItem('qhp-mode'); l = localStorage.getItem('qhp-lang'); } catch (e) {}
+  if (m !== 'light' && m !== 'dark') m = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  if (l !== 'es' && l !== 'en') l = /^es\b/i.test(navigator.language || 'es') ? 'es' : 'en';
+  document.documentElement.setAttribute('data-mode', m);
+  document.documentElement.setAttribute('lang', l);
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+{{CSS}}
+</head>
+<body>
+<a class="skip" href="#contenido" data-i18n="skip">Saltar al contenido</a>
+
+<header class="nav" id="nav">
+  <div class="nav__bar">
+    <a class="nav__logo" href="#inicio" data-i18n-attr="aria-label:homeLink">
+      <img class="on-light" src="{{IMG:assets/logo/logo-negro.png}}" alt="" width="117" height="40">
+      <img class="on-dark" src="{{IMG:assets/logo/logo-amarillo.png}}" alt="" width="117" height="40">
+    </a>
+    <nav class="nav__links" data-i18n-attr="aria-label:navLabel">
+      <a href="#como" data-i18n="navHow">Cómo funciona</a>
+      <a href="#negocios" data-i18n="navBiz">Para negocios</a>
+      <a href="#instalar" data-i18n="navInstall">Instalar</a>
+      {{NAV_CONTROLS}}
+      <button type="button" class="icon-btn js-pause" aria-pressed="false" data-i18n-attr="aria-label:pause"><span class="ic-pause">{{IC_PAUSE}}</span><span class="ic-play">{{IC_PLAY}}</span></button>
+      <a class="btn btn--primary btn--small js-download" href="{{DL_URL}}" data-i18n-attr="aria-label:navDownloadSr" aria-describedby="relHero"><span class="nav__dl-text" data-i18n="navDownload">Descargar</span><span class="nav__dl-icon" aria-hidden="true">{{ICON_DL}}</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+  <!-- HERO -->
+  <section class="hero" id="inicio" aria-labelledby="hero-title">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="logo-anim" role="img" aria-label="¿Qué hay pa'?" lang="es">
+{{LOGO_LETTERS}}
+        </p>
+        <h1 class="hero__title" id="hero-title"><span class="sr-only" data-i18n="h1plain">Todo lo que hay pa' hacer cerca de ti, en una sola app.</span><span aria-hidden="true" data-split data-i18n-html="h1">Todo lo que hay pa' hacer cerca de ti, en <span class="hl">una sola app.</span></span></h1>
+        <p class="lead" data-rise data-i18n="lead">Encuentra eventos, lugares y actividades según tus gustos. Guárdalos, organízalos y recibe recordatorios, sin saltar entre redes sociales.</p>
+        <div class="cta-row" data-rise>
+          <a class="btn btn--primary btn--shine js-download" href="{{DL_URL}}" aria-describedby="relHero">{{ICON_DL}}<span data-i18n="cta">Descargar para Android</span></a>
+          <a class="link-down" href="#como"><span data-i18n="seeHow">Ver cómo funciona</span> {{ICON_DOWN}}</a>
+        </div>
+        <p class="micro" data-rise><span class="js-release" id="relHero">APK gratuito</span><br><span data-i18n="noAccount">No necesitas crear una cuenta para descargarla.</span></p>
+      </div>
+      <div class="hero__art" aria-hidden="true">
+        <div class="blob"></div>
+        <div class="pin-home pin-anchor" id="pinHome"><div class="pin-static">{{PIN_SVG_STATIC}}</div></div>
+        <svg class="deco deco--ticket js-float" viewBox="0 0 120 110" fill="none" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(14 22) rotate(-14 46 40)"><path d="M0 0H92V26a14 14 0 0 0 0 28V80H0V54a14 14 0 0 0 0-28Z" fill="#EB4A9A" stroke="#8331C4" stroke-width="7"/><path d="M64 10V70" stroke="#fff" stroke-width="5" stroke-dasharray="6 9"/><path d="M18 26H46M18 42H38" stroke="#fff" stroke-width="6"/></g></svg>
+        <svg class="deco deco--note js-float" viewBox="0 0 90 110" fill="none" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(30 14)"><path d="M0 74V12L52-4V58" stroke="#C77FFF" stroke-width="11"/><ellipse cx="-12" cy="76" rx="18" ry="14" fill="#C77FFF"/><ellipse cx="40" cy="60" rx="18" ry="14" fill="#C77FFF"/></g></svg>
+        <svg class="deco deco--cal js-float" viewBox="0 0 124 118" fill="none" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(10 8) rotate(8 52 49)"><rect width="104" height="98" rx="16" fill="#fff" stroke="#0128EB" stroke-width="8"/><path d="M0 30V16A16 16 0 0 1 16 0H88A16 16 0 0 1 104 16V30Z" fill="#0A47ED" stroke="#0128EB" stroke-width="8"/><circle cx="32" cy="58" r="9" fill="#E8E6E6"/><circle cx="52" cy="58" r="9" fill="#EB4A9A"/><circle cx="72" cy="58" r="9" fill="#E8E6E6"/><circle cx="32" cy="78" r="9" fill="#E8E6E6"/><circle cx="52" cy="78" r="9" fill="#E8E6E6"/><circle cx="72" cy="78" r="9" fill="#FCD413"/></g></svg>
+        <svg class="deco deco--sp1 js-twinkle" viewBox="-30 -30 60 60">{{SPARK:#FFFFFF}}</svg>
+        <svg class="deco deco--sp2 js-twinkle sp-ink" viewBox="-30 -30 60 60">{{SPARK:#121212}}</svg>
+        <svg class="deco deco--sp3 js-twinkle" viewBox="-30 -30 60 60">{{SPARK:#EB4A9A}}</svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="how" id="como" aria-labelledby="como-title">
+    <div class="wrap how__grid">
+      <div class="how__copy">
+        <p class="eyebrow" data-i18n="navHow">Cómo funciona</p>
+        <h2 id="como-title" data-i18n="howTitle">Menos buscar, más salir.</h2>
+        <ol class="steps">
+          <li class="step is-active">
+            <button class="step__btn" type="button" data-step="0"><img class="step__thumb" src="{{IMG:assets/illustrations/descubre.svg}}" alt="" width="56" height="56"><span class="step__title" data-i18n="s1t">Descubre lo que hay cerca</span></button>
+            <div class="step__desc" id="sd0"><p data-i18n="s1d">Explora eventos, lugares y actividades según tus intereses, tu presupuesto y dónde estás.</p></div>
+          </li>
+          <li class="step">
+            <button class="step__btn" type="button" data-step="1"><img class="step__thumb" src="{{IMG:assets/illustrations/guarda.svg}}" alt="" width="56" height="56"><span class="step__title" data-i18n="s2t">Guarda y organiza tus planes</span></button>
+            <div class="step__desc" id="sd1"><p data-i18n="s2d">Aparta lo que te gusta, arma tu plan y recibe recordatorios para que no se te pase nada.</p></div>
+          </li>
+          <li class="step">
+            <button class="step__btn" type="button" data-step="2"><img class="step__thumb" src="{{IMG:assets/illustrations/mapa.svg}}" alt="" width="56" height="56"><span class="step__title" data-i18n="s3t">Míralo en el mapa</span></button>
+            <div class="step__desc" id="sd2"><p data-i18n="s3d">Ubica cada plan en un mapa interactivo y decide cuál te queda mejor.</p></div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="how__device">
+        <div class="phone-fit" id="phoneFit">
+          <div class="phone" aria-hidden="true">
+            <div class="screen screen--1">
+              <div class="s1-top"></div>
+              <img class="s1-logo" src="{{IMG:assets/logo/logo-negro.png}}" alt="">
+              <div class="s1-arc"></div>
+              <div class="s1-cats">
+                <div class="s1-cat"><i>{{IC:music}}</i><b></b></div>
+                <div class="s1-cat"><i>{{IC:pin}}</i><b></b></div>
+                <div class="s1-cat"><i>{{IC:star}}</i><b></b></div>
+                <div class="s1-cat"><i>{{IC:heart}}</i><b></b></div>
+                <div class="s1-cat"><i>{{IC:ticket}}</i><b></b></div>
+              </div>
+              <div class="s1-cut"></div>
+              <div class="card" style="top:290px">
+                <div class="card__media"><svg style="position:absolute;right:14px;top:10px;width:44px" viewBox="-30 -30 60 60">{{SPARK:#EB4A9A}}</svg><svg style="position:absolute;left:14px;bottom:12px;width:70px" viewBox="0 0 70 30"><circle cx="8" cy="18" r="7" fill="#8331C4"/><rect x="22" y="10" width="20" height="9" rx="4.5" fill="#0A47ED" transform="rotate(-20 32 14)"/><circle cx="56" cy="12" r="6" fill="#FCD413"/></svg></div>
+                <div class="card__title" data-i18n="ph1">Noche de salsa en el parque</div>
+                <div class="card__meta" data-i18n="ph2">Sáb · 8:00 p. m. · dato de ejemplo</div>
+                <div class="card__row"><span data-i18n="ph3">Ver más</span><span>{{IC:share}}</span><span>{{IC:mark}}</span></div>
+              </div>
+              <div class="card" style="top:452px;height:60px"></div>
+              <div class="tabbar"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="screen screen--2 s2">
+              <div class="notif"><span class="notif__icon">{{IC:bell}}</span><span><b data-i18n="ph4">En 30 min: Noche de salsa</b><small data-i18n="ph5">Parque central · dato de ejemplo</small></span></div>
+              <div class="s2-top"></div>
+              <img class="s2-logo" src="{{IMG:assets/logo/logo-amarillo.png}}" alt="">
+              <div class="s2-title" data-i18n="ph6">Mis planes</div>
+              <div class="s2-days" data-i18n-html="ph7"><span class="on">L<br>1</span><span>M<br>2</span><span>M<br>3</span><span>J<br>4</span><span>V<br>5</span><span>S<br>6</span></div>
+              <div class="plan" style="top:214px"><div class="plan__thumb" style="background:#F9C8E0"></div><div><div class="plan__title" data-i18n="ph1">Noche de salsa en el parque</div><span class="plan__time" data-i18n="ph8">8:00 – 11:00 p. m.</span></div><svg class="plan__mark" viewBox="0 0 24 24" fill="#EB4A9A"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></div>
+              <div class="plan" style="top:298px"><div class="plan__thumb" style="background:#C77FFF"></div><div><div class="plan__title" data-i18n="ph9">Feria gastronómica</div><span class="plan__time" data-i18n="ph10">12:00 – 4:00 p. m.</span></div><svg class="plan__mark" viewBox="0 0 24 24" fill="#EB4A9A"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></div>
+              <div class="plan" style="top:382px"><div class="plan__thumb" style="background:#0A47ED"></div><div><div class="plan__title" data-i18n="ph11">Cine al aire libre</div><span class="plan__time" data-i18n="ph12">7:00 – 9:00 p. m.</span></div><svg class="plan__mark" viewBox="0 0 24 24" fill="#EB4A9A"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></div>
+              <div class="tabbar"><i></i><i class="on"></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="screen screen--3 s3">
+              <svg class="s3-map" viewBox="0 0 260 560" preserveAspectRatio="xMidYMid slice" fill="none" stroke-linecap="round">
+                <rect width="260" height="560" fill="#EFEDE8"/>
+                <path d="M-20 170C40 150 70 210 140 190S230 120 290 140" stroke="#fff" stroke-width="16"/>
+                <path d="M60 -20C80 120 40 220 90 330S80 480 120 600" stroke="#fff" stroke-width="16"/>
+                <path d="M-20 400C60 380 140 430 290 380" stroke="#fff" stroke-width="12"/>
+                <path d="M190 -20C180 120 220 260 200 600" stroke="#fff" stroke-width="10"/>
+                <path d="M150 80h70v60h-70z" fill="#FFE97D" transform="rotate(8 185 110)"/>
+                <path d="M20 230q40-30 70 0t20 60q-40 20-80 0t-10-60z" fill="#F9C8E0"/>
+                <path d="M130 300C150 280 170 250 196 236" stroke="#8331C4" stroke-width="5" stroke-dasharray="1 10"/>
+              </svg>
+              <div class="s3-search">{{IC:search}}<span data-i18n="ph13">Buscar cerca de ti</span></div>
+              <svg class="mpin" style="left:170px;top:200px" viewBox="-46 -50 92 120"><path d="M0-46C-26-46-44-27-44-3C-44 26-10 44 0 66C10 44 44 26 44-3C44-27 26-46 0-46Z" fill="#EB4A9A" stroke="#8331C4" stroke-width="7"/><circle cy="-3" r="14" fill="#fff"/></svg>
+              <svg class="mpin" style="left:44px;top:170px" viewBox="-46 -50 92 120"><path d="M0-46C-26-46-44-27-44-3C-44 26-10 44 0 66C10 44 44 26 44-3C44-27 26-46 0-46Z" fill="#0A47ED" stroke="#0128EB" stroke-width="7"/><circle cy="-3" r="14" fill="#fff"/></svg>
+              <svg class="mpin" style="left:186px;top:330px" viewBox="-46 -50 92 120"><path d="M0-46C-26-46-44-27-44-3C-44 26-10 44 0 66C10 44 44 26 44-3C44-27 26-46 0-46Z" fill="#FCD413" stroke="#0128EB" stroke-width="7"/><circle cy="-3" r="14" fill="#121212"/></svg>
+              <div class="me"></div>
+              <div class="s3-sheet"><div><b data-i18n="ph14">3 planes cerca de ti</b><small data-i18n="ph15">Dato de ejemplo</small></div><span data-i18n="ph16">Ver</span></div>
+              <div class="tabbar"><i></i><i></i><i class="on"></i><i></i><i></i></div>
+            </div>
+          </div>
+          <div class="pin-anchor pin-anchor--how" id="pinHow"></div>
+        </div>
+        <p class="device-note" data-i18n="deviceNote">Pantallas de ejemplo con datos ficticios</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="tapes" aria-hidden="true">
+    <div class="tape tape--a"><div class="tape__track" data-tape="tapeA">{{TAPE_A}}</div></div>
+    <div class="tape tape--b"><div class="tape__track" data-tape="tapeB">{{TAPE_B}}</div></div>
+  </div>
+
+  <!-- NEGOCIOS -->
+  <section class="biz" id="negocios" aria-labelledby="neg-title">
+    <div class="wrap biz__grid">
+      <div class="biz__art">
+        <img src="{{IMG:assets/illustrations/negocios.svg}}" alt="" width="500" height="500">
+        <div class="pin-anchor pin-anchor--biz" id="pinBiz"></div>
+      </div>
+      <div class="biz__copy">
+        <p class="chip chip--violet" data-i18n="bizChip">Para negocios y organizadores</p>
+        <h2 id="neg-title" data-i18n="bizTitle">Muestra tu evento a quienes ya están buscando plan.</h2>
+        <ul class="stickers">
+          <li class="sticker"><div class="sticker__in"><span class="sticker__icon" aria-hidden="true">{{ICW:megaphone}}</span><span data-i18n="b1">Publica tus eventos y actividades en un canal local pensado para planes.</span></div></li>
+          <li class="sticker"><div class="sticker__in"><span class="sticker__icon" aria-hidden="true">{{ICW:rocket}}</span><span data-i18n="b2">Destaca tu evento con visibilidad prioritaria cuando lo necesites.</span></div></li>
+          <li class="sticker"><div class="sticker__in"><span class="sticker__icon" aria-hidden="true">{{ICW:chart}}</span><span data-i18n="b3">Mira cuántas personas ven tu evento y cuántas terminan yendo.</span></div></li>
+          <li class="sticker"><div class="sticker__in"><span class="sticker__icon" aria-hidden="true">{{ICW:badge}}</span><span data-i18n="b4">Organizadores verificados: tu público sabe en quién confiar.</span></div></li>
+        </ul>
+        <div class="biz__cta">
+          <a class="btn btn--alt js-mail-biz" href="mailto:{{EMAIL}}" data-i18n="bizCta">Quiero publicar mi evento</a>
+          <a class="mail" href="mailto:{{EMAIL}}">{{EMAIL}}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTALAR -->
+  <section class="install" id="instalar" aria-labelledby="inst-title">
+    <div class="wrap install__grid">
+      <div class="install__copy">
+        <h2 id="inst-title" data-i18n="instTitle">Instálala en 3 pasos.</h2>
+        <p class="install__lead" data-i18n="instLead">Por ahora ¿Qué hay pa'? se instala desde un archivo APK, no desde Google Play.</p>
+        <div class="isteps-wrap" style="position:relative">
+          <span class="rail" aria-hidden="true"><span class="rail__fill"></span></span>
+          <ol class="isteps">
+            <li class="istep"><span class="istep__num" aria-hidden="true"><svg class="istep__ring" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30"/></svg><span class="istep__n">1</span>{{IC_CHECK}}</span><div><h3 data-i18n="i1t">Descarga el archivo</h3><p data-i18n="i1d">Toca el botón de descarga y guarda el APK en tu celular.</p></div></li>
+            <li class="istep"><span class="istep__num" aria-hidden="true"><svg class="istep__ring" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30"/></svg><span class="istep__n">2</span>{{IC_CHECK}}</span><div><h3 data-i18n="i2t">Permite la instalación</h3><p data-i18n="i2d">Al abrirlo, Android te pedirá autorizar la instalación desde tu navegador o gestor de archivos. Se hace una sola vez.</p></div></li>
+            <li class="istep"><span class="istep__num" aria-hidden="true"><svg class="istep__ring" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30"/></svg><span class="istep__n">3</span>{{IC_CHECK}}</span><div><h3 data-i18n="i3t">Abre la app y elige tus intereses</h3><p data-i18n="i3d">Listo: ya puedes explorar los planes cerca de ti.</p></div></li>
+          </ol>
+        </div>
+        <p class="notice">{{IC_SHIELD}}<span data-i18n="notice">Descarga el APK solo desde esta página oficial.</span></p>
+      </div>
+      <div class="install__art">
+        <img src="{{IMG:assets/illustrations/instalar.svg}}" alt="" width="470" height="470">
+        <div class="pin-anchor pin-anchor--install" id="pinInstall"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <section class="final" id="descargar" aria-labelledby="fin-title">
+    <div class="wrap">
+      <h2 id="fin-title"><span class="sr-only" data-i18n="finalH2">Descarga ¿Qué hay pa'?</span><img class="final__logo" src="{{IMG:assets/logo/logo-amarillo.png}}" alt="" width="640" height="219"></h2>
+      <p class="big" data-i18n="finalText">Tu próximo plan está a un toque.</p>
+      <div class="cta-dock">
+        <a class="btn btn--yellow btn--shine js-download" href="{{DL_URL}}" aria-describedby="relFinal">{{ICON_DL}}<span data-i18n="cta">Descargar para Android</span></a>
+        <div class="pin-anchor pin-anchor--dock" id="pinDock"></div>
+      </div>
+      <p class="micro"><span class="js-release" id="relFinal">APK gratuito</span></p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer__in">
+    <span>© 2026 Alta Kurtosis Software Solutions</span>
+    <nav data-i18n-attr="aria-label:footerLabel">
+      <a href="privacidad.html" data-i18n="privacy">Política de privacidad</a>
+      <a href="terminos.html" data-i18n="terms">Términos</a>
+      <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>
+      <button type="button" class="linkbtn js-pause" aria-pressed="false"><span class="ic-pause">{{IC_PAUSE}}</span><span class="ic-play">{{IC_PLAY}}</span><span class="js-pause-label" data-i18n="pause">Pausar animaciones</span></button>
+    </nav>
+  </div>
+</footer>
+
+<div class="guide" id="guide" aria-hidden="true"><div class="guide__tilt"><div class="guide__bob">{{PIN_SVG}}</div></div></div>
+<div class="bubble" id="bubble" aria-hidden="true"></div>
+<canvas class="confetti" id="confetti" aria-hidden="true"></canvas>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>window.QHP = {{CFG}};</script>
+{{I18N}}
+{{CONTROLS}}
+{{GSAP}}
+{{JS}}
+</body>
+</html>
