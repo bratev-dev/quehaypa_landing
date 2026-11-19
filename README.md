@@ -75,8 +75,3 @@ Si algo falla, la página igual se publica, solo sin versión ni tamaño. Tambi�
 - **Textos legales:** `site/src/legal/*.es.html` y `*.en.html`.
 - **Colores:** variables al inicio de `site/src/styles.css` (`:root` para claro, `[data-mode="dark"]` para oscuro).
 - **Correo de contacto:** `EMAIL` en `scripts/build.py`.
-
-## Pendiente antes de publicar
-
-Los textos legales son un borrador. Completen los marcadores resaltados (`[FECHA DE PUBLICACIÓN]`, `[PLAZO]`
-y los `[Confirmar: …]`) y que los revise un abogado antes de publicarlos.
